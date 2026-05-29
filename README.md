@@ -1,1 +1,1 @@
-# OOP-CS25-SEMPROJECT
+This is basically a text-based battle game arena. The game name is MARVEL BATTLE ARENA. In this game first you select the character which is basically hero of your game then game starts. Game has basically 5 rounds. In each round, in 3 seconds you need to select the 3 conditions: 1) attack 2)defend 3)powerboom if you dont select them then enemy attacks you.
