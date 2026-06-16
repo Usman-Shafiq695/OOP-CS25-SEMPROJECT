@@ -8,10 +8,12 @@ class character {
 	int health;
 	int attacking_power;
 	int static total_characters;
+	int total_health;
 public:
 	character(mystr _name, int _health, int _attacking_power) {
 		name = _name;
 		health = _health;
+		total_health = _health;
 		attacking_power = _attacking_power;
 		total_characters++;
 	}
@@ -31,7 +33,13 @@ public:
 	virtual void defend(int h) = 0;
 	virtual int power() = 0;
 	virtual void healthgain(int h) {
-		health = health + h;
+		int a = health + h;
+		if (a > total_health) {
+			health = total_health;
+		}
+		else {
+			health = a;
+		}
 	}
 };
 int character::total_characters = 0;
@@ -147,7 +155,7 @@ public:
                                        //   ENEMY CLASSES
 class ChitauriSoldier : public character {
 public:
-	ChitauriSoldier() : character("HULK", 100, 24) {}
+	ChitauriSoldier() : character("LOKI", 100, 24) {}
 	int attack()override {
 		return chr_attacking_power();
 	}
@@ -262,6 +270,72 @@ public:
 		environment;
 	}
 	character* generate_enemy() {
-
+		if (level_no == 0) {
+			character* enemies = new ChitauriSoldier;
+			return enemies;
+		}
+		else if (level_no == 1) {
+			character* enemies = new LivingAutomaton;
+			return enemies;
+		}
+		else if (level_no == 2) {
+			character* enemies = new BlackDwarf;
+			return enemies;
+		}
+		else if (level_no == 3) {
+			character* enemies = new Abonymow;
+			return enemies;
+		}
+		else if (level_no == 4) {
+			character* enemies = new TitanWarLord;
+			return enemies;
+		}
+		else if (level_no == 5) {
+			character* enemies = new TimeVariantKing;
+			return enemies;
+		}
+	}
+	void showintro() {
+		if (level_no == 0) {
+			cout << "THE BATTLE FIELD IS IN NEW YORK MANHATTAN NAME AS BATTLE OF NEW YORK" << endl;
+		}
+		else if (level_no == 1) {
+			cout << "THE BATTLE FIELD IS IN SKOVIA NAME AS BATTLE OF SKOVIA" << endl;
+		}
+		else if (level_no == 2) {
+			cout << "THE BATTLE FIELD IS IN WAKANDA NAME AS BATTLE OF WAKANDA" << endl;
+		}
+		else if (level_no == 3) {
+			cout << "THE BATTLE FIELD IS IN ASGARD NAME AS BATTLE OF ASGARD" << endl;
+		}
+		else if (level_no == 4) {
+			cout << "THE BATTLE FIELD IS IN TITAN NAME AS BATTLE OF TITAN" << endl;
+		}
+		else if (level_no == 5) {
+			cout << "THE BATTLE FIELD IS IN QUANTUM REALM NAME AS BATTLE OF TIME" << endl;
+		}
+	}
+	int healthbonus() {
+		if (level_no == 0) {
+			return 10;
+		}
+		else if (level_no == 1) {
+			return 15;
+		}
+		else if (level_no == 2) {
+			return 17;
+		}
+		else if (level_no == 3) {
+			return 20;
+		}
+		else if (level_no == 4) {
+			return 23;
+		}
+		else if (level_no == 5) {
+			return 27;
+		}
 	}
 };
+int main() {
+
+}
