@@ -415,23 +415,20 @@ public:
 		return c;
 	}
 	int healthbonus() {
-		if (level_no == 0) {
+	    if (level_no == 1) {
 			return 10;
 		}
-		else if (level_no == 1) {
+		else if (level_no == 2) {
 			return 15;
 		}
-		else if (level_no == 2) {
+		else if (level_no == 3) {
 			return 17;
 		}
-		else if (level_no == 3) {
+		else if (level_no == 4) {
 			return 20;
 		}
-		else if (level_no == 4) {
-			return 23;
-		}
 		else if (level_no == 5) {
-			return 27;
+			return 23;
 		}
 	}
 	void increase_level() {
@@ -455,6 +452,11 @@ int main() {
 	Texture2D Tutorial = LoadTexture("tutorial.jpg");
 	Texture2D level1 = LoadTexture("lokiscene1.jpeg");
 	Music theme = LoadMusicStream("marvel.mp3.mp3");
+	Texture2D level2 = LoadTexture("ultronscene.jpeg");
+	Texture2D level3 = LoadTexture("cullobsidianscene.jpeg");
+	Texture2D level4 = LoadTexture("hulkscene.jpg");
+	Texture2D level6 = LoadTexture("kangscene.jpeg");
+	Texture2D level5 = LoadTexture("thanostitan.jpeg");
 	float timer = 0, time = 0, enemytimer = 0, tim = 0, pause = 0, paus = 0;
 	Font myFont = LoadFont("googlesans.ttf");
 	cout << myFont.texture.id << endl;
@@ -589,18 +591,23 @@ int main() {
 			}
 			else if (level.level_number() == 2) {
 				ClearBackground(MAGENTA);
+				DrawTexturePro(level2, Rectangle{ 0, 0, (float)level2.width, (float)level2.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 3) {
 				ClearBackground(light_green);
+				DrawTexturePro(level3, Rectangle{ 0, 0, (float)level3.width, (float)level3.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 4) {
 				ClearBackground(light_green);
+				DrawTexturePro(level4, Rectangle{ 0, 0, (float)level4.width, (float)level4.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 5) {
 				ClearBackground(light_green);
+				DrawTexturePro(level5, Rectangle{ 0, 0, (float)level5.width, (float)level5.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 6) {
 				ClearBackground(light_green);
+				DrawTexturePro(level6, Rectangle{ 0, 0, (float)level6.width, (float)level6.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			DrawText(TextFormat("LEVEL: %i", level.level_number()), screen_width / 2 - 100, 40, 40, WHITE);
 			villian = level.generate_enemy(villian);
@@ -681,31 +688,36 @@ int main() {
 		else if (a == 6) {
 			if (level.level_number() == 1) {
 				ClearBackground(SKYBLUE);
-				DrawTexturePro(Front_Page, Rectangle{ 0, 0, (float)Front_Page.width, (float)Front_Page.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
+				DrawTexturePro(level1, Rectangle{ 0, 0, (float)level1.width, (float)level1.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 2) {
 				ClearBackground(MAGENTA);
+				DrawTexturePro(level2, Rectangle{ 0, 0, (float)level2.width, (float)level2.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 3) {
 				ClearBackground(light_green);
+				DrawTexturePro(level3, Rectangle{ 0, 0, (float)level3.width, (float)level3.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 4) {
 				ClearBackground(light_green);
+				DrawTexturePro(level4, Rectangle{ 0, 0, (float)level4.width, (float)level4.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 5) {
 				ClearBackground(light_green);
+				DrawTexturePro(level5, Rectangle{ 0, 0, (float)level5.width, (float)level5.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
 			else if (level.level_number() == 6) {
 				ClearBackground(light_green);
+				DrawTexturePro(level6, Rectangle{ 0, 0, (float)level6.width, (float)level6.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
 			}
-			DrawText(TextFormat("LEVEL: %i", level.level_number()), screen_width / 2 - 100, 40, 40, BLACK);
+			DrawText(TextFormat("LEVEL: %i", level.level_number()), screen_width / 2 - 100, 40, 40, WHITE);
 			_n = villian[0].chr_name();
-			DrawText(TextFormat("OPPONENT: ", _n.print()), screen_width / 2 - 180, 100, 40, BLACK);
+			DrawText(TextFormat("OPPONENT: ", _n.print()), screen_width / 2 - 180, 100, 40, WHITE);
 			DrawText(TextFormat("%s ", _n.print()), screen_width / 2 + 100, 99, 50, DARKBLUE);
-			DrawText("ENVIRONMENT OF BATTLE FIELD:", screen_width / 2 - 350, 160, 40, BLACK);
-			DrawText(TextFormat("%s", level.showintro().print()), screen_width / 5 - 210, 220, 29, BLACK);
-			DrawRectangle(screen_width / 15, 300, 540, 450, LIGHTGRAY);
-			DrawRectangle(650, 300, 570, 450, LIGHTGRAY);
+			DrawText("ENVIRONMENT OF BATTLE FIELD:", screen_width / 2 - 350, 160, 40, WHITE);
+			DrawText(TextFormat("%s", level.showintro().print()), screen_width / 5 - 210, 220, 29, WHITE);
+			DrawRectangle(screen_width / 15, 300, 540, 450, light_green);
+			DrawRectangle(650, 300, 570, 450, light_green);
 			DrawText(TextFormat("%s", hero->chr_name().print()), 200, 320, 30, BLACK);
 			DrawText(TextFormat("%s", villian->chr_name().print()), 765, 320, 30, BLACK);
 			DrawText("ATTACK", screen_width / 15 + 30, 400, 27, BLACK);
@@ -804,8 +816,8 @@ int main() {
 			DrawText(TextFormat(" %i", hero->chr_health()), screen_width / 15 + 230, 570, 40, green);
 			DrawText(TextFormat("HEALTH:", villian->chr_health()), 650 + 30, 570, 40, BLACK);
 			DrawText(TextFormat(" %i", villian->chr_health()), 650 + 230, 570, 40, green);
-			DrawText("YOU HAVE ONE MINUTE FOR EVERY ROUND", screen_width / 15 + 150, 760, 30, BLACK);
-			DrawText("PRESS ENTER KEY TO START THE ROUND", screen_width / 15 + 150, 270, 30, BLACK);
+			DrawText("YOU HAVE ONE MINUTE FOR EVERY ROUND", screen_width / 15 + 150, 760, 30, WHITE);
+			//DrawText("PRESS ENTER KEY TO START THE ROUND", screen_width / 15 + 150, 270, 30, BLACK);
 			if (z == 1) {
 				if (timer <= 60.0f) {
 					DrawText(TextFormat("TIME: %.0f", timer), screen_width / 3, 700, 40, BLACK);
@@ -817,8 +829,14 @@ int main() {
 			}
 			if (villian->chr_health() <= 0) {
 				a = 5;
-				level.increase_level();
 				z = 0;
+				if (level.level_number() == 5) {
+					a = 8;
+				}
+				else {
+					level.increase_level();
+				}
+				hero->get_health(level.healthbonus());
 			}
 			if (hero->chr_health() <= 0) {
 				a = 7;
@@ -826,7 +844,41 @@ int main() {
 		}
 		else if (a == 7) {
 			ClearBackground(BLACK);
+			DrawTexturePro(Front_Page, Rectangle{ 0, 0, (float)Front_Page.width, (float)Front_Page.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
+			/*DrawRectangle(screen_width / 5+50, 0, screen_width / 5+100,screen_length,RED);
+			DrawRectangle(screen_width -256, 0, screen_width-256, screen_length, RED);
+			*/DrawText("DEFEATED", screen_width / 3 - 90, 60, 120, WHITE);
+			/*DrawTextEx(myFont, "WELCOME", Vector2{ screen_width / 3 - 60, 60 }, 120, 4, WHITE);
+			DrawTextEx(myFont, "TO", Vector2{ screen_width / 3 + 100, 200 }, 120, 4, WHITE);
+			DrawTextEx(myFont, "WELCOME", Vector2{ screen_width / 8, 340 }, 120, 4, WHITE);
+			DrawTextEx(myFont, "WELCOME", Vector2{ screen_width / 3, 500 }, 120, 4, WHITE);
+			*/DrawText("AT", screen_width / 3 + 100, 200, 120, WHITE);
+			DrawText(TextFormat("LEVEL: %i",level.level_number()), screen_width / 3-90, 340, 120, WHITE);
+			DrawText("BETTER LUCK NEXT TIME", screen_width / 12, 500, 80, WHITE);
+			DrawTextEx(myFont, "(P.PLAY AGAIN  OR  E.EXIT)", Vector2{ screen_width / 2+100, 600 }, 40, 4, WHITE);
+			if (IsKeyDown(KEY_P)) {
+				a = 1;
+				continue;
+			}
+			if (IsKeyDown(KEY_E)) {
+				a = 9;
+				continue;
+			}
 		}
+		else if (a == 8) {
+			DrawTexturePro(Front_Page, Rectangle{ 0, 0, (float)Front_Page.width, (float)Front_Page.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
+			DrawText("CONGRAGULATIONS", screen_width / 5 - 90, 100, 100, WHITE);
+			DrawText("YOU WON THE GAME ", screen_width / 12, 300, 100, WHITE);
+			DrawTextEx(myFont, "(P.PLAY AGAIN  OR  E.EXIT)", Vector2{ screen_width / 4 + 100, 550 }, 60, 4, WHITE);
+			if (IsKeyDown(KEY_P)) {
+				a = 1;
+				continue;
+			}
+			if (IsKeyDown(KEY_E)) {
+				a = 9;
+				continue;
+			}
+}
 		EndDrawing();
 	}
 
