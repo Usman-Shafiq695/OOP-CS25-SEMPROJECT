@@ -836,7 +836,7 @@ int main() {
 				else {
 					level.increase_level();
 				}
-				hero->get_health(level.healthbonus());
+				hero->healthgain(level.healthbonus());
 			}
 			if (hero->chr_health() <= 0) {
 				a = 7;
@@ -878,7 +878,21 @@ int main() {
 				a = 9;
 				continue;
 			}
-}
+		}
+		else if (a == 9) {
+			DrawTexturePro(Front_Page, Rectangle{ 0, 0, (float)Front_Page.width, (float)Front_Page.height }, Rectangle{ 0, 0, (float)screen_width, (float)screen_length }, Vector2{ 0, 0 }, 0, WHITE);
+			/*DrawRectangle(screen_width / 5+50, 0, screen_width / 5+100,screen_length,RED);
+			DrawRectangle(screen_width -256, 0, screen_width-256, screen_length, RED);
+			*/DrawText("THANKS", screen_width / 3 - 60, 60, 120, WHITE);
+			/*DrawTextEx(myFont, "WELCOME", Vector2{ screen_width / 3 - 60, 60 }, 120, 4, WHITE);
+			DrawTextEx(myFont, "TO", Vector2{ screen_width / 3 + 100, 200 }, 120, 4, WHITE);
+			DrawTextEx(myFont, "WELCOME", Vector2{ screen_width / 8, 340 }, 120, 4, WHITE);
+			DrawTextEx(myFont, "WELCOME", Vector2{ screen_width / 3, 500 }, 120, 4, WHITE);
+			*/DrawText("FOR", screen_width / 3 + 100, 200, 120, WHITE);
+			DrawText("PLAYING THIS", screen_width / 8, 340, 120, WHITE);
+			DrawText("GAME", screen_width / 3, 500, 120, WHITE);
+
+		}
 		EndDrawing();
 	}
 
