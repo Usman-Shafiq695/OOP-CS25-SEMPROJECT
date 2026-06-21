@@ -3,5 +3,6 @@ The game consists of 5 rounds. In each round, the player participates in a one-m
 1. Attack
 2. Defend
 3. Power Boom
+
 Each action affects the battle differently and can be used strategically to gain an advantage over the enemy. If the player fails to make a selection within the given time limit, the enemy automatically attacks.
 The game includes multiple heroes, each with unique characteristics. The player's objective is to survive all five rounds, defeat the enemies, and emerge victorious in the Marvel Battle Arena. The game uses Raylib's graphics and input handling features to provide an interactive gameplay experience.
