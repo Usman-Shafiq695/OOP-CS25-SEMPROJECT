@@ -381,11 +381,11 @@ void mystr::input(istream& in)
 	this->regrow();
 	this->str[this->length - 1] = '\0';
 }
-void mystr::print()
+char* mystr::print()
 {
 	for (int i = 0; i < this->length; i++)
 	{
-		cout << this->str[i];
+		return str;
 	}
 }
 bool operator==(const mystr& lhs, const mystr& rhs)

@@ -55,7 +55,7 @@ public:
 	friend ostream& operator<<(ostream& cout, const mystr& other);
 	void regrow();
 	void input(istream& in);
-	void print();
+	char* print();
 	friend bool operator==(const mystr& lhs, const mystr& rhs);
 	bool equalto(const mystr& rhs);
 	friend bool operator!=(const mystr& lhs, const mystr& rhs);
@@ -91,6 +91,7 @@ public:
 	void clear();
 };
 #endif
+
 
 
 
